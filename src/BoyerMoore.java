@@ -3,7 +3,7 @@ import java.util.*;
 
 import parcs.*;
 
-public class Boyer-Moore implements AM{
+public class BoyerMoore implements AM{
     public void run(AMInfo info)
     {
         long la, lb, ln, ll, lr;
