@@ -13,7 +13,7 @@ public class Solver implements AM
 
         task curtask = new task();
         curtask.addJarFile("Solver.jar");
-        curtask.addJarFile("ShanksAlgorithm.jar");
+        curtask.addJarFile("Boyer-Moore.jar");
 
         System.out.println("The Solver class method main adder jar files");
 
@@ -96,7 +96,7 @@ public class Solver implements AM
             points.add(info.createPoint());
             System.out.println(points);
             channels.add(points.get(i).createChannel());
-            points.get(i).execute("ShanksAlgorithm");
+            points.get(i).execute("Boyer-Moore");
             channels.get(i).write(la);
             channels.get(i).write(lb);
             channels.get(i).write(ln);
