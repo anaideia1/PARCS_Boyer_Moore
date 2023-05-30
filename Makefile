@@ -8,7 +8,7 @@ out/Solver.jar: out/parcs.jar src/Solver.java
 	@jar cf out/Solver.jar -C src Solver.class -C src
 	@rm -f src/Solver.class
 
-out/ShanksAlgorithm.jar: out/parcs.jar src/Boyer-Moore.java
+out/Boyer-Moore.jar: out/parcs.jar src/Boyer-Moore.java
 	@javac -cp out/parcs.jar src/Boyer-Moore.java
 	@jar cf out/Boyer-Moore.jar -C src Boyer-Moore.class -C src
 	@rm -f src/Boyer-Moore.class
