@@ -30,11 +30,6 @@ public class Solver implements AM
         try
         {
             BufferedReader in = new BufferedReader(new FileReader(info.curtask.findFile("test_1.txt")));
-
-//             lp = Integer.parseInt(in.readLine());
-//             la = Long.parseLong(in.readLine());
-//             lb = Long.parseLong(in.readLine());
-//             ln = Long.parseLong(in.readLine());
         }
         catch (IOException e)
         {
@@ -43,14 +38,7 @@ public class Solver implements AM
             return;
         }
 
-//         System.out.println("The Solver class have read data from the parent server");
-//         System.out.println("alpha = " + la);
-//         System.out.println("beta = " + lb);
-//         System.out.println("n = " + ln);
-        // Time counting
         long tStart = System.nanoTime();
-
-//         long res = solve(info, lp, la, lb, ln);
         long res = solve(info, 2);
 
         long tEnd = System.nanoTime();
@@ -70,7 +58,7 @@ public class Solver implements AM
     {
         List<BigInteger> left = new ArrayList<>();
         List<BigInteger> right = new ArrayList<>();
-        List<Long> solution = new ArrayList<>();
+        List<Integer> solution = new ArrayList<>();
 
 //         BigInteger n = BigInteger.valueOf(ln);
         BigInteger n = BigInteger.ONE;
@@ -107,16 +95,14 @@ public class Solver implements AM
         // Mapping results
         for(int i = 0; i < nThreads; i++)
         {
-            solution.add(channels.get(i).readLong());
+            solution.add(channels.get(i).readInt());
         }
         // Finding the solution
-        long result = -1;
-        for (Long aLong : solution) {
-            if (aLong != -1) {
-                result = aLong;
-            }
+        long result = 0;
+        for (int a: solution) {
+            result += a;
         }
-
+        System.out.println("The BoyerMoore daemons returns the summarized result: x = " + result);
         return result;
     }
 }
