@@ -101,7 +101,7 @@ public class BoyerMoore implements AM{
 //         lr = info.parent.readLong();
 //         lr = info.parent.read
 
-         char txt[] = "cxzcxzc xzczxzxc zxc zxc".toCharArray();
+         char txt[] = "cxzcxzc xzczxzxc zxc zxcz".toCharArray();
          char pat[] = "zxc".toCharArray();
          int res = search(txt, pat);
 
