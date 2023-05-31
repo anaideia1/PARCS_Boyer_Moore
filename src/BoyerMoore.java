@@ -107,9 +107,8 @@ public class BoyerMoore implements AM{
          // Returning results
         if(res != 0)
         {
-            res = res.subtract(j);
             System.out.println("The BoyerMoore class return the result: x = " + res);
-            info.parent.write(res.longValue());
+            info.parent.write(res);
         }
         else
         {
