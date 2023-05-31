@@ -82,6 +82,7 @@ public class BoyerMoore implements AM{
                  character. */
               s += max(1, j - badchar[txt[s+j]]);
       }
+      System.out.println("Patterns occurs " + count + "times.");
       return count;
      }
 
