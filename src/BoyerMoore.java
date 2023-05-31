@@ -27,7 +27,7 @@ public class BoyerMoore implements AM{
 
      /* A pattern searching function that uses Bad
      Character Heuristic of Boyer Moore Algorithm */
-     static void search( char txt[],  char pat[])
+     static int search( char txt[],  char pat[])
      {
       int m = pat.length;
       int n = txt.length;
@@ -42,6 +42,7 @@ public class BoyerMoore implements AM{
       int s = 0;  // s is shift of the pattern with
                   // respect to text
        //there are n-m+1 potential alignments
+      int count = 0;
       while(s <= (n - m))
       {
           int j = m-1;
@@ -58,7 +59,7 @@ public class BoyerMoore implements AM{
           if (j < 0)
           {
               System.out.println("Patterns occur at shift = " + s);
-
+              count++;
               /* Shift the pattern so that the next
                  character in text aligns with the last
                  occurrence of it in pattern.
@@ -81,6 +82,7 @@ public class BoyerMoore implements AM{
                  character. */
               s += max(1, j - badchar[txt[s+j]]);
       }
+      return count;
      }
 
      /* Driver program to test above function */
