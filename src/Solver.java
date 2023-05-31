@@ -24,7 +24,7 @@ public class Solver implements AM
 
     public void run(AMInfo info)
     {
-        int n = 2;
+        int n = 1;
         String text, pattern;
 
         try
