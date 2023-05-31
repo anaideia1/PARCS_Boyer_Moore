@@ -24,12 +24,12 @@ public class Solver implements AM
 
     public void run(AMInfo info)
     {
-        int n=2;
+        int n = 2;
         String text, pattern;
 
         try
         {
-            BufferedReader in = new BufferedReader(new FileReader(info.curtask.findFile("test_2.txt")));
+            BufferedReader in = new BufferedReader(new FileReader(info.curtask.findFile("test_0.txt")));
             text = in.readLine();
             pattern = "zxc";
         }
@@ -53,7 +53,7 @@ public class Solver implements AM
         {
             System.out.println("x = " + res);
         }
-        System.out.println("Working time on " + 2 + " processes: " + ((tEnd - tStart) / 1000000) + "ms");
+        System.out.println("Working time on " + n + " processes: " + ((tEnd - tStart) / 1000000) + "ms");
     }
 
     static public long solve(AMInfo info, int nThreads, String text, String pattern)
@@ -64,7 +64,7 @@ public class Solver implements AM
 
         List <point> points = new ArrayList<point>();
         List <channel> channels = new ArrayList<channel>();
-        
+
         // Connection to points
         Integer step = text.length() / nThreads;
         Integer remainder = text.length() % nThreads;
