@@ -61,7 +61,7 @@ public class BoyerMoore implements AM{
           if (j < 0)
           {
               System.out.println("two");
-              System.out.println("Patterns occur at shift = " + s);
+              System.out.println("twoPatterns occur at shift = " + s);
               count++;
               /* Shift the pattern so that the next
                  character in text aligns with the last
@@ -91,10 +91,32 @@ public class BoyerMoore implements AM{
 
      /* Driver program to test above function */
     public  void run(AMInfo info) {
+        // Reading data
+//         la = info.parent.readLong();
+//         lb = info.parent.readLong();
+//         ln = info.parent.readLong();
+//         ll = info.parent.readLong();
+//         lr = info.parent.readLong();
+//         lr = info.parent.read
 
          char txt[] = "cxzcxzc xzczxzxc zxc zxc".toCharArray();
          char pat[] = "zxc".toCharArray();
+         System.out.println("null");
          int res = search(txt, pat);
+
+         // Returning results
+        if(res != 0)
+        {
+            res = res.subtract(j);
+            System.out.println("The BoyerMoore class return the result: x = " + res);
+            info.parent.write(res.longValue());
+        }
+        else
+        {
+            System.out.println("The BoyerMoore class doesn't find any solution");
+            info.parent.write(0);
+        }
+    }
     }
 }
 
