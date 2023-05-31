@@ -117,7 +117,6 @@ public class BoyerMoore implements AM{
             info.parent.write(0);
         }
     }
-    }
 }
 
 // public class BoyerMoore implements AM{
