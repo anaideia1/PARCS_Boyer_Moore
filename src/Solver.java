@@ -31,10 +31,10 @@ public class Solver implements AM
         {
             BufferedReader in = new BufferedReader(new FileReader(info.curtask.findFile("test_1.txt")));
 
-            lp = Integer.parseInt(in.readLine());
-            la = Long.parseLong(in.readLine());
-            lb = Long.parseLong(in.readLine());
-            ln = Long.parseLong(in.readLine());
+//             lp = Integer.parseInt(in.readLine());
+//             la = Long.parseLong(in.readLine());
+//             lb = Long.parseLong(in.readLine());
+//             ln = Long.parseLong(in.readLine());
         }
         catch (IOException e)
         {
@@ -43,45 +43,45 @@ public class Solver implements AM
             return;
         }
 
-        System.out.println("The Solver class have read data from the parent server");
-        System.out.println("alpha = " + la);
-        System.out.println("beta = " + lb);
-        System.out.println("n = " + ln);
+//         System.out.println("The Solver class have read data from the parent server");
+//         System.out.println("alpha = " + la);
+//         System.out.println("beta = " + lb);
+//         System.out.println("n = " + ln);
         // Time counting
         long tStart = System.nanoTime();
 
-        long res = solve(info, lp, la, lb, ln);
+//         long res = solve(info, lp, la, lb, ln);
+        long res = solve(info, 2);
 
         long tEnd = System.nanoTime();
         // Printing results
         if(res == -1)
         {
-            System.out.println("There is no solution for: " + la + " ^ x = " + lb + " (mod " + ln + ")");
+            System.out.println("There is no solution for: ");
         }
         else
         {
-            System.out.println("" + la + " ^ " + res + " = " + lb + " (mod " + ln + ")");
             System.out.println("x = " + res);
         }
         System.out.println("Working time on " + lp + " processes: " + ((tEnd - tStart) / 1000000) + "ms");
     }
 
-    static public long solve(AMInfo info, int nThreads, long la, long lb, long ln)
+    static public long solve(AMInfo info, int nThreads)
     {
         List<BigInteger> left = new ArrayList<>();
         List<BigInteger> right = new ArrayList<>();
         List<Long> solution = new ArrayList<>();
 
-        BigInteger n = BigInteger.valueOf(ln);
+//         BigInteger n = BigInteger.valueOf(ln);
         // Dividing the line of mod to intervals
-        for(int i = 0; i < nThreads; i++)
-        {
-            BigInteger tl = n.multiply(BigInteger.valueOf(i)).divide(BigInteger.valueOf(nThreads));
-            BigInteger tr = n.multiply(BigInteger.valueOf(i).add(BigInteger.valueOf(1))).divide(BigInteger.valueOf(nThreads)).subtract(BigInteger.valueOf(1));
-
-            left.add(tl);
-            right.add(tr);
-        }
+//         for(int i = 0; i < nThreads; i++)
+//         {
+//             BigInteger tl = n.multiply(BigInteger.valueOf(i)).divide(BigInteger.valueOf(nThreads));
+//             BigInteger tr = n.multiply(BigInteger.valueOf(i).add(BigInteger.valueOf(1))).divide(BigInteger.valueOf(nThreads)).subtract(BigInteger.valueOf(1));
+//
+//             left.add(tl);
+//             right.add(tr);
+//         }
 
         List <point> points = new ArrayList<point>();
         List <channel> channels = new ArrayList<channel>();
@@ -96,12 +96,12 @@ public class Solver implements AM
             System.out.println(points);
             channels.add(points.get(i).createChannel());
             points.get(i).execute("BoyerMoore");
-            channels.get(i).write(la);
-            channels.get(i).write(lb);
-            channels.get(i).write(ln);
-
-            channels.get(i).write(tl.longValue());
-            channels.get(i).write(tr.longValue());
+//             channels.get(i).write(la);
+//             channels.get(i).write(lb);
+//             channels.get(i).write(ln);
+//
+//             channels.get(i).write(tl.longValue());
+//             channels.get(i).write(tr.longValue());
         }
 
         // Mapping results
