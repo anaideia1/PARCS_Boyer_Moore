@@ -45,12 +45,12 @@ public class BoyerMoore implements AM{
       int count = 0;
       while(s <= (n - m))
       {
-          System.out.println("one");
           int j = m-1;
 
           /* Keep reducing index j of pattern while
              characters of pattern and text are
              matching at this shift s */
+          System.out.println("---");
           while(j >= 0 && pat[j] == txt[s+j]) {
             System.out.println(txt[s+j]);
             j--;
@@ -62,7 +62,6 @@ public class BoyerMoore implements AM{
              the above loop */
           if (j < 0)
           {
-              System.out.println("three");
               System.out.println("Patterns occur at shift = " + s);
               count++;
               /* Shift the pattern so that the next
@@ -76,7 +75,6 @@ public class BoyerMoore implements AM{
 
           }
           else
-              System.out.println("four");
               /* Shift the pattern so that the bad character
                  in text aligns with the last occurrence of
                  it in pattern. The max function is used to
@@ -101,7 +99,7 @@ public class BoyerMoore implements AM{
 //         lr = info.parent.readLong();
 //         lr = info.parent.read
 
-         char txt[] = "cxzcxzc xzczxzxc zxc zxcz".toCharArray();
+         char txt[] = "cxzxcxzc xzczxzxc zxc zxcz".toCharArray();
          char pat[] = "zxc".toCharArray();
          int res = search(txt, pat);
 
