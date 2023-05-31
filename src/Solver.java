@@ -25,10 +25,14 @@ public class Solver implements AM
     public void run(AMInfo info)
     {
         int n=2;
+        String text, pattern;
 
         try
         {
             BufferedReader in = new BufferedReader(new FileReader(info.curtask.findFile("test_1.txt")));
+            text = in.readLine();
+//             String text = new String(Files.readAllBytes(Paths.get("test_1.txt")), StandardCharsets.UTF_8);
+            pattern = "zxc";
         }
         catch (IOException e)
         {
@@ -38,7 +42,7 @@ public class Solver implements AM
         }
 
         long tStart = System.nanoTime();
-        long res = solve(info, n);
+        long res = solve(info, n, text, pattern);
 
         long tEnd = System.nanoTime();
         // Printing results
@@ -53,7 +57,7 @@ public class Solver implements AM
         System.out.println("Working time on " + 2 + " processes: " + ((tEnd - tStart) / 1000000) + "ms");
     }
 
-    static public long solve(AMInfo info, int nThreads)
+    static public long solve(AMInfo info, int nThreads, String text, String pattern)
     {
         List<BigInteger> left = new ArrayList<>();
         List<BigInteger> right = new ArrayList<>();
@@ -74,8 +78,8 @@ public class Solver implements AM
         List <point> points = new ArrayList<point>();
         List <channel> channels = new ArrayList<channel>();
         // Connection to points
-        String text = "zxczxccxzxcxzc xzczxzxc zxc zxcz";
-        String pattern = "zxc";
+//         String text = "zxczxccxzxcxzc xzczxzxc zxc zxcz";
+
         Integer step = text.length() / nThreads;
         Integer remainder = text.length() % nThreads;
         for(int i = 0; i < nThreads; i++)
