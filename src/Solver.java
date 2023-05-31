@@ -63,7 +63,7 @@ public class Solver implements AM
         {
             System.out.println("x = " + res);
         }
-        System.out.println("Working time on " + lp + " processes: " + ((tEnd - tStart) / 1000000) + "ms");
+        System.out.println("Working time on " + 2 + " processes: " + ((tEnd - tStart) / 1000000) + "ms");
     }
 
     static public long solve(AMInfo info, int nThreads)
@@ -73,6 +73,7 @@ public class Solver implements AM
         List<Long> solution = new ArrayList<>();
 
 //         BigInteger n = BigInteger.valueOf(ln);
+        BigInteger n = BigInteger.ONE;
         // Dividing the line of mod to intervals
 //         for(int i = 0; i < nThreads; i++)
 //         {
