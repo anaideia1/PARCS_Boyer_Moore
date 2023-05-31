@@ -52,7 +52,7 @@ public class BoyerMoore implements AM{
              characters of pattern and text are
              matching at this shift s */
           while(j >= 0 && pat[j] == txt[s+j])
-          System.out.println("two");
+          System.out.println(txt[s+j]);
           j--;
 
           /* If the pattern is present at current
@@ -61,7 +61,7 @@ public class BoyerMoore implements AM{
           if (j < 0)
           {
               System.out.println("three");
-              System.out.println("twoPatterns occur at shift = " + s);
+              System.out.println("Patterns occur at shift = " + s);
               count++;
               /* Shift the pattern so that the next
                  character in text aligns with the last
@@ -73,7 +73,6 @@ public class BoyerMoore implements AM{
               s += (s+m < n)? m-badchar[txt[s+m]] : 1;
 
           }
-
           else
               System.out.println("four");
               /* Shift the pattern so that the bad character
