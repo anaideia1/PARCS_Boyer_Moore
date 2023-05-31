@@ -92,7 +92,7 @@ public class Solver implements AM
             BigInteger tl = n.multiply(BigInteger.valueOf(i)).divide(BigInteger.valueOf(nThreads));
             BigInteger tr = n.multiply(BigInteger.valueOf(i).add(BigInteger.valueOf(1))).divide(BigInteger.valueOf(nThreads)).subtract(BigInteger.valueOf(1));
 
-            String text = "cxzxcxzc xzczxzxc zxc zxcz";
+            String text = "zxczxccxzxcxzc xzczxzxc zxc zxcz";
             String pattern = "zxc";
 
             System.out.println(i);
