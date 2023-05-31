@@ -24,8 +24,7 @@ public class Solver implements AM
 
     public void run(AMInfo info)
     {
-        long la, lb, ln;
-        int lp;
+        int n=2;
 
         try
         {
@@ -39,7 +38,7 @@ public class Solver implements AM
         }
 
         long tStart = System.nanoTime();
-        long res = solve(info, 2);
+        long res = solve(info, n);
 
         long tEnd = System.nanoTime();
         // Printing results
@@ -60,7 +59,7 @@ public class Solver implements AM
         List<BigInteger> right = new ArrayList<>();
         List<Integer> solution = new ArrayList<>();
 
-//         BigInteger n = BigInteger.valueOf(ln);
+//         BigInteger n = BigInteger.valueOf(n);
         BigInteger n = BigInteger.ONE;
         // Dividing the line of mod to intervals
 //         for(int i = 0; i < nThreads; i++)
@@ -75,20 +74,21 @@ public class Solver implements AM
         List <point> points = new ArrayList<point>();
         List <channel> channels = new ArrayList<channel>();
         // Connection to points
+        String text = "zxczxccxzxcxzc xzczxzxc zxc zxcz";
+        String pattern = "zxc";
+        Integer step = text.length() / nThreads;
+        Integer remainder = text.length() % nThreads;
         for(int i = 0; i < nThreads; i++)
         {
-            BigInteger tl = n.multiply(BigInteger.valueOf(i)).divide(BigInteger.valueOf(nThreads));
-            BigInteger tr = n.multiply(BigInteger.valueOf(i).add(BigInteger.valueOf(1))).divide(BigInteger.valueOf(nThreads)).subtract(BigInteger.valueOf(1));
-
-            String text = "zxczxccxzxcxzc xzczxzxc zxc zxcz";
-            String pattern = "zxc";
+            Integer overlap = ((i < nThreads - 1) ? pattern.length() - 1 : remainder);
+            String subText = text.substring(i * step, (i + 1) * step + overlap);
 
             System.out.println(i);
             points.add(info.createPoint());
             System.out.println(points);
             channels.add(points.get(i).createChannel());
             points.get(i).execute("BoyerMoore");
-            channels.get(i).write(text);
+            channels.get(i).write(subText);
             channels.get(i).write(pattern);
         }
 
