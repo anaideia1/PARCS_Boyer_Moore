@@ -51,9 +51,11 @@ public class BoyerMoore implements AM{
           /* Keep reducing index j of pattern while
              characters of pattern and text are
              matching at this shift s */
-          while(j >= 0 && pat[j] == txt[s+j])
-          System.out.println(txt[s+j]);
-          j--;
+          while(j >= 0 && pat[j] == txt[s+j]) {
+            System.out.println(txt[s+j]);
+            j--;
+          }
+
 
           /* If the pattern is present at current
              shift, then index j will become -1 after
