@@ -6,7 +6,6 @@ import parcs.*;
 
 public class Solver implements AM
 {
-
     public static void main(String[] args)
     {
         System.out.println("The Solver class start method main");
@@ -104,39 +103,6 @@ public class Solver implements AM
             channels.get(i).write(tl.longValue());
             channels.get(i).write(tr.longValue());
         }
-
-        /*
-        * for(int i = 0; i.compareTo(nThreads) == -1; i++)
-        {
-            BigInteger tl = n.multiply(i).divide(nThreads);
-            BigInteger tr = n.multiply(i.add(BigInteger.valueOf(1))).divide(nThreads).subtract(BigInteger.valueOf(1));
-
-            int intI = i.intValue();
-            System.out.println(intI);
-            System.out.println("Something unknown2");
-            points.add(info.createPoint());
-            points.add(info.createPoint());
-            System.out.println(points);
-            channels.add(points.get(0).createChannel());
-            points.get(0).execute("ShanksAlgorithm");
-            channels.get(0).write(la);
-            channels.get(0).write(lb);
-            channels.get(0).write(ln);
-
-            channels.get(0).write(tl.longValue());
-            channels.get(0).write(tr.longValue());
-
-            channels.add(points.get(1).createChannel());
-            points.get(1).execute("ShanksAlgorithm");
-            channels.get(1).write(la);
-            channels.get(1).write(lb);
-            channels.get(1).write(ln);
-
-            channels.get(1).write(tl.longValue());
-            channels.get(1).write(tr.longValue());
-        }
-        *
-        * */
 
         // Mapping results
         for(int i = 0; i < nThreads; i++)
