@@ -31,7 +31,6 @@ public class Solver implements AM
         {
             BufferedReader in = new BufferedReader(new FileReader(info.curtask.findFile("test_2.txt")));
             text = in.readLine();
-//             String text = new String(Files.readAllBytes(Paths.get("test_1.txt")), StandardCharsets.UTF_8);
             pattern = "zxc";
         }
         catch (IOException e)
@@ -63,23 +62,10 @@ public class Solver implements AM
         List<BigInteger> right = new ArrayList<>();
         List<Integer> solution = new ArrayList<>();
 
-//         BigInteger n = BigInteger.valueOf(n);
-        BigInteger n = BigInteger.ONE;
-        // Dividing the line of mod to intervals
-//         for(int i = 0; i < nThreads; i++)
-//         {
-//             BigInteger tl = n.multiply(BigInteger.valueOf(i)).divide(BigInteger.valueOf(nThreads));
-//             BigInteger tr = n.multiply(BigInteger.valueOf(i).add(BigInteger.valueOf(1))).divide(BigInteger.valueOf(nThreads)).subtract(BigInteger.valueOf(1));
-//
-//             left.add(tl);
-//             right.add(tr);
-//         }
-
         List <point> points = new ArrayList<point>();
         List <channel> channels = new ArrayList<channel>();
+        
         // Connection to points
-//         String text = "zxczxccxzxcxzc xzczxzxc zxc zxcz";
-
         Integer step = text.length() / nThreads;
         Integer remainder = text.length() % nThreads;
         for(int i = 0; i < nThreads; i++)
