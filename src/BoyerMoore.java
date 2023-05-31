@@ -85,22 +85,18 @@ public class BoyerMoore implements AM{
                  character. */
               s += max(1, j - badchar[txt[s+j]]);
       }
-      System.out.println("Patterns occurs " + count + "times.");
+      System.out.println("Patterns occurs " + count + " times.");
       return count;
      }
 
      /* Driver program to test above function */
     public  void run(AMInfo info) {
         // Reading data
-//         la = info.parent.readLong();
-//         lb = info.parent.readLong();
-//         ln = info.parent.readLong();
-//         ll = info.parent.readLong();
-//         lr = info.parent.readLong();
-//         lr = info.parent.read
+        String text = (String) info.parent.readObject();
+        String pattern = (String) info.parent.readObject();
 
-         char txt[] = "cxzxcxzc xzczxzxc zxc zxcz".toCharArray();
-         char pat[] = "zxc".toCharArray();
+         char txt[] = text.toCharArray();
+         char pat[] = pattern.toCharArray();
          int res = search(txt, pat);
 
          // Returning results
