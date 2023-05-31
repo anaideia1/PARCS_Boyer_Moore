@@ -94,7 +94,7 @@ public class BoyerMoore implements AM{
 
          char txt[] = "cxzcxzc xzczxzxc zxc zxc".toCharArray();
          char pat[] = "zxc".toCharArray();
-         search(txt, pat);
+         int res = search(txt, pat);
     }
 }
 
