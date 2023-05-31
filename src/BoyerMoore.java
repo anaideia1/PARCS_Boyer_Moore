@@ -60,6 +60,7 @@ public class BoyerMoore implements AM{
              the above loop */
           if (j < 0)
           {
+              System.out.println("two");
               System.out.println("Patterns occur at shift = " + s);
               count++;
               /* Shift the pattern so that the next
