@@ -29,7 +29,7 @@ public class Solver implements AM
 
         try
         {
-            BufferedReader in = new BufferedReader(new FileReader(info.curtask.findFile("test_1.txt")));
+            BufferedReader in = new BufferedReader(new FileReader(info.curtask.findFile("test_2.txt")));
             text = in.readLine();
 //             String text = new String(Files.readAllBytes(Paths.get("test_1.txt")), StandardCharsets.UTF_8);
             pattern = "zxc";
