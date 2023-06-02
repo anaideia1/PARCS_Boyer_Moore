@@ -24,12 +24,12 @@ public class Solver implements AM
 
     public void run(AMInfo info)
     {
-        int n = 1;
+        int n = 2;
         String text, pattern;
 
         try
         {
-            BufferedReader in = new BufferedReader(new FileReader(info.curtask.findFile("test_0.txt")));
+            BufferedReader in = new BufferedReader(new FileReader(info.curtask.findFile("test_2.txt")));
             text = in.readLine();
             pattern = "zxc";
         }
